@@ -5,11 +5,15 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
+
+import br.furb.tcc.controller.AutorizadorInterceptor;
 
 @Configuration
 @EnableWebMvc
@@ -46,5 +50,17 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter {
 				registry.addMapping("/GetTemplate").allowedOrigins("*");
 			}
 		};
+	}
+	
+	 @Override
+	   public void addInterceptors(InterceptorRegistry registry) {
+	      // Register guest interceptor with single path pattern
+	      registry.addInterceptor(new AutorizadorInterceptor()).addPathPatterns("/**");
+	   }
+
+	
+	@Bean
+	public HandlerInterceptorAdapter interceptors() {
+		return new AutorizadorInterceptor();
 	}
 }

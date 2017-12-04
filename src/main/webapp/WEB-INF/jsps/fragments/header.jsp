@@ -3,13 +3,15 @@
 <head>
 <title>Beacon MVC Form</title>
 
-<spring:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" var="bootstrapCss" />
+<spring:url value="resources/css/bootstrap.min.css" var="bootstrapCss" />
 <link href="${bootstrapCss}" rel="stylesheet" />
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="resources/js/jquery.min.js"></script>
 
-<spring:url value="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"	var="bootstrapJs" />
+<spring:url value="resources/js/bootstrap.min.js"	var="bootstrapJs" />
 <script src="${bootstrapJs}"></script>
+
+<link rel="shortcut icon" type="image/png" href="resources/beacon.png"/>
 
 </head>
 

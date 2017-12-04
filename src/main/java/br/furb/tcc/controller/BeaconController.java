@@ -42,12 +42,6 @@ public class BeaconController {
 		binder.setValidator(beaconFormValidator);
 	}
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String index(Model model) {
-		logger.debug("index()");
-		return "redirect:/beacons";
-	}
-
 	// list page
 	@RequestMapping(value = "/beacons", method = RequestMethod.GET)
 	public String showAllBeacons(Model model) {
