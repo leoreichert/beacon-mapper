@@ -21,7 +21,7 @@ public class Utils {
 			hexString.append(String.format("%02X", 0xFF & b));
 		}
 		
-		return hexString.toString();
+		return hexString.toString().toLowerCase();
 	}
 
 }

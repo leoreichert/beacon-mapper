@@ -6,6 +6,7 @@
 <link rel="shortcut icon" type="image/png" href="resources/beacon.png"/>
 
 <link href="../resources/css/bootstrap.min.css" rel="stylesheet" />
+<link href="../resources/css/hello.css" rel="stylesheet" />
 
 <script src="../resources/js/jquery.min.js"></script>
 <script src="../resources/js/hello.js"></script>

@@ -96,7 +96,7 @@ public class BeaconRestController {
 			if (maxValue < access)
 				maxValue = access;
 			
-			retorno += String.format(baseFormat, beacon.getPosicaoX(), beacon.getPosicaoY(), access);
+			retorno += String.format(baseFormat, beacon.getPosicaoX() * 2, beacon.getPosicaoY() * 2, access);
 		});
 		
 		String retornoLocal = "{\"max\" : \"" + maxValue + "\", \"access\" : [ " + retorno.substring(0, retorno.length() - 1) + "]}";

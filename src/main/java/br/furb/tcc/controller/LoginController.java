@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import br.furb.tcc.model.Usuario;
 import br.furb.tcc.repository.UsuarioRepository;
+import br.furb.tcc.util.Utils;
 
 @Controller
 public class LoginController {
@@ -40,7 +41,7 @@ public class LoginController {
 	@RequestMapping(value = "/efetuaLogin", method = RequestMethod.POST)
 	public String efetuaLogin(Model model, Usuario usuario, HttpSession session) {
 		Optional<Usuario> usuarioOptional = usuarioRepository.findByUsername(usuario.getUsername());
-		if ((usuarioOptional.isPresent()) && (usuarioOptional.get().getPassword().equals(usuario.getPassword()))) {
+		if ((usuarioOptional.isPresent()) && (usuarioOptional.get().getPassword().equals(Utils.toSha256(usuario.getPassword())))) {
 			session.setAttribute("usuarioLogado", usuario);
 			return "redirect:/beacons";
 		}

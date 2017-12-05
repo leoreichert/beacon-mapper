@@ -7,8 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import br.furb.tcc.util.Utils;
-
 @Entity
 @Table(name = "users")
 public class Usuario {
@@ -41,10 +39,7 @@ public class Usuario {
 	}
 
 	public String getPassword() {
-		if ((id != null) || (password == null))
-			return password;
-		
-		return Utils.toSha256(password).toLowerCase();
+		return password;
 	}
 
 	public void setPassword(String password) {

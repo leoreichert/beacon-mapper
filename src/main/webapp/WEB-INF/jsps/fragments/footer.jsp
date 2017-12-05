@@ -2,7 +2,7 @@
 <div class="container">
 	<hr>
 	<footer>
-		<p>&copy; Mkyong.com 2015</p>
+		<p>Leonardo Adriano Reichert - FURB 2017/II</p>
 	</footer>
 </div>
 

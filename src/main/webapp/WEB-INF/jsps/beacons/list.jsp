@@ -21,14 +21,15 @@
 			</div>
 		</c:if>
 
-		<h1>All Beacons</h1>
+		<h1>Beacons mapeados</h1>
 
 		<table class="table table-striped">
 			<thead>
 				<tr>
 					<th>#ID</th>
-					<th>uid</th>
-					<th>Action</th>
+					<th>UID</th>
+					<th>URLID</th>
+					<th>Ações</th>
 				</tr>
 			</thead>
 
@@ -38,6 +39,7 @@
 						${beacon.id}
 					</td>
 					<td>${beacon.uid}</td>
+					<td>${beacon.urlid}</td>
 					<td>
 						<spring:url value="/beacons/${beacon.id}" var="beaconUrl" />
 						<spring:url value="/beacons/${beacon.id}/delete" var="deleteUrl" /> 

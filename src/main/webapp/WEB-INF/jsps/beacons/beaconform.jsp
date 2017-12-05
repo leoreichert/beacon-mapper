@@ -11,28 +11,6 @@
 
 <div class="container">
 	<script>
-		function post(path, params, method) {
-			method = method || "post"; 
-		
-			var form = document.createElement("form");
-			form.setAttribute("method", method);
-			form.setAttribute("action", path);
-		
-			for ( var key in params) {
-				if (params.hasOwnProperty(key)) {
-					var hiddenField = document.createElement("input");
-					hiddenField.setAttribute("type", "hidden");
-					hiddenField.setAttribute("name", key);
-					hiddenField.setAttribute("value", params[key]);
-		
-					form.appendChild(hiddenField);
-				}
-			}
-		
-			document.body.appendChild(form);
-			form.submit();
-		}
-		
 		function salvarPosicao(event) {
 			document.getElementById('posicaoX').value = event.offsetX;
 			document.getElementById('posicaoY').value = event.offsetY;
@@ -51,7 +29,8 @@
 
 	<spring:url value="/beacons" var="beaconActionUrl" />
 
-	<form:form class="form-horizontal" method="post" modelAttribute="beaconForm" action="${beaconActionUrl}">
+	<form:form class="form-horizontal" method="post"
+		modelAttribute="beaconForm" action="${beaconActionUrl}">
 
 		<form:hidden path="id" />
 
@@ -59,7 +38,8 @@
 			<div class="form-group ${status.error ? 'has-error' : ''}">
 				<label class="col-sm-2 control-label">ID</label>
 				<div class="col-sm-10">
-					<form:input path="uid" type="text" class="form-control " id="uid" placeholder="uid" />
+					<form:input path="uid" type="text" class="form-control " id="uid"
+						placeholder="uid" />
 					<form:errors path="uid" class="control-label" />
 				</div>
 			</div>
@@ -69,12 +49,13 @@
 			<div class="form-group ${status.error ? 'has-error' : ''}">
 				<label class="col-sm-2 control-label">URL</label>
 				<div class="col-sm-10">
-					<form:input path="urlid" class="form-control" id="urlid" placeholder="urlid" />
+					<form:input path="urlid" class="form-control" id="urlid"
+						placeholder="urlid" />
 					<form:errors path="urlid" class="control-label" />
 				</div>
 			</div>
 		</spring:bind>
-		
+
 		<spring:bind path="estado">
 			<div class="form-group ${status.error ? 'has-error' : ''}">
 				<label class="col-sm-2 control-label">Estado</label>
@@ -88,28 +69,31 @@
 				<div class="col-sm-5"></div>
 			</div>
 		</spring:bind>
-		
+
 		<spring:bind path="posicaoX">
 			<div class="form-group ${status.error ? 'has-error' : ''}">
 				<label class="col-sm-2 control-label">X</label>
 				<div class="col-sm-4">
-					<form:input enable='false' path="posicaoX" class="form-control" id="posicaoX" placeholder="posicaoX" />
+					<form:input enable='false' path="posicaoX" class="form-control"
+						id="posicaoX" placeholder="posicaoX" />
 					<form:errors path="posicaoX" class="control-label" />
 				</div>
-				
+
 				<label class="col-sm-2 control-label">Y</label>
 				<div class="col-sm-4">
-					<form:input enable='false' path="posicaoY" class="form-control" id="posicaoY" placeholder="posicaoY" />
+					<form:input enable='false' path="posicaoY" class="form-control"
+						id="posicaoY" placeholder="posicaoY" />
 					<form:errors path="posicaoY" class="control-label" />
 				</div>
-				
-				<div class="col-sm-5 mapa">
-	    			<canvas id="canvas" width="400" height="400" onclick="salvarPosicao(event)"></canvas>
+
+				<div class="col-sm-5 col-md-offset-5 mapa">
+					<canvas id="canvas" width="400" height="400"
+						onclick="salvarPosicao(event)"></canvas>
 				</div>
 			</div>
 		</spring:bind>
-		
-			
+
+
 
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">

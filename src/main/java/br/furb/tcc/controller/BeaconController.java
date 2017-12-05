@@ -10,6 +10,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -33,9 +34,9 @@ public class BeaconController {
 	@Autowired
 	BeaconFormValidator beaconFormValidator;
 
-	@InitBinder("beaconForm")
+	@InitBinder
 	protected void initBinder(WebDataBinder binder) {
-		binder.setValidator(beaconFormValidator);
+		binder.setValidator(new BeaconFormValidator());
 	}
 
 	@RequestMapping(value = "/beacons", method = RequestMethod.GET)
@@ -45,7 +46,7 @@ public class BeaconController {
 	}
 
 	@RequestMapping(value = "/beacons", method = RequestMethod.POST)
-	public String saveOrUpdatebeacon(@ModelAttribute Beacon beacon, BindingResult result, Model model, final RedirectAttributes redirectAttributes) {
+	public String saveOrUpdatebeacon(@ModelAttribute("beaconForm") @Validated Beacon beacon, BindingResult result, Model model, final RedirectAttributes redirectAttributes) {
 		if (result.hasErrors()) {
 			populateDefaultModel(model);
 			return "beacons/beaconform";
@@ -89,7 +90,7 @@ public class BeaconController {
 		beaconRepository.delete(id);
 
 		redirectAttributes.addFlashAttribute("css", "success");
-		redirectAttributes.addFlashAttribute("msg", "beacon foi apagado!");
+		redirectAttributes.addFlashAttribute("msg", "Beacon removido com sucesso!");
 
 		return "redirect:/beacons";
 
