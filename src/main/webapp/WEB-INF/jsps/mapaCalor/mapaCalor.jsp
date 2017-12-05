@@ -26,7 +26,7 @@
 		window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
 		                               window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
 		
-		var response = JSON.parse(httpGet('http://localhost:6969/GetAllAccessBeacon'));
+		var response = JSON.parse(httpGet('https://beacon-mapper.herokuapp.com/GetAllAccessBeacon'));
 		
 		var data = [];
 		for (i = 0; i < response.access.length; i++) { 
