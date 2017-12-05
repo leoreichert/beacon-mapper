@@ -12,9 +12,9 @@
 <body>
 	<div class="row" style="margin-top:20px">
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-        	<spring:url value="/efetuaLogin" var="efetuaLogin" />
+        	<spring:url value="/efetuaLogin" var="efetuaLoginUrl" />
         
-            <form:form class="form-horizontal" method="post" modelAttribute="usuarioForm" action="${beaconActionUrl}">
+            <form:form class="form-horizontal" method="post" modelAttribute="usuarioForm" action="${efetuaLoginUrl}">
                     <c:if test="${not empty param.error}">
                         <div class="alert alert-danger">
                             Invalid username and password.
@@ -40,7 +40,7 @@
 						<div class="form-group ${status.error ? 'has-error' : ''}">
 							<label class="col-sm-2 control-label">Senha</label>
 							<div class="col-sm-10">
-								<form:input path="password" class="form-control" id="password" placeholder="password" />
+								<form:password path="password" class="form-control" id="password" placeholder="password" />
 								<form:errors path="password" class="control-label" />
 							</div>
 						</div>

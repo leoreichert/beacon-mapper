@@ -45,15 +45,16 @@
 						<spring:url value="${beacon.urlid}" var="editUrl" />
 						<spring:url value="${beacon.urlid}/vis/" var="viewUrl" />
 
-						<button class="btn btn-info" onclick="location.href='${beaconUrl}'">Query</button>
-						<button class="btn btn-primary" onclick="location.href='${updateUrl}'">Update</button>
-						<button class="btn btn-danger" onclick="this.disabled=true;post('${deleteUrl}')">Delete</button>
-						<button class="btn btn-danger" onclick="this.disabled=true;post('${editUrl}')">Editar Página</button>
-						<button class="btn btn-danger" onclick="this.disabled=true;post('${viewUrl}')">Visualizar Página</button></td>
+						<button class="btn btn-default" onclick="location.href='${beaconUrl}'">Query</button>
+						<button class="btn btn-info" onclick="location.href='${updateUrl}'">Update</button>
+						<button class="btn btn-primary" onclick="this.disabled=true;post('${deleteUrl}')">Delete</button>
+						<button class="btn btn-warning" onclick="location.href='${editUrl}'">Editar Página</button>
+						<button class="btn btn-danger" onclick="location.href='${viewUrl}'">Visualizar Página</button></td>
 				</tr>
 			</c:forEach>
 		</table>
-		
+		<spring:url value="/beacons/add" var="urlAddBeacon" />
+		<button class="btn btn-success btn-lg" onclick="location.href='${urlAddBeacon}'">Novo Beacon</button>		
 	</div>
 	
 	<jsp:include page="../fragments/footer.jsp" />

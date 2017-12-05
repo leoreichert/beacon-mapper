@@ -1,11 +1,16 @@
 package br.furb.tcc.model;
 
+import java.util.Collection;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -36,6 +41,9 @@ public class Beacon {
     
     @Column(name = "estado")
     private String estado;
+    
+    @OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL, orphanRemoval=true, mappedBy="idBeacon")   
+    private Collection<BeaconAccess> access;
     
     @Transient
     private boolean selecionado;

@@ -12,12 +12,19 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 			throws Exception {
 
 		String uri = request.getRequestURI();
-		if (uri.endsWith("login") || uri.endsWith("efetuaLogin") || uri.contains("resources") || uri.contains("error")) {
+		
+		if (uri.endsWith("login") && (request.getSession().getAttribute("usuarioLogado") != null)) {
+			response.sendRedirect("beacons");
 			return true;
 		}
 		
+		if (uri.endsWith("login") || uri.endsWith("efetuaLogin") || uri.contains("resources") || uri.contains("error")
+				 || uri.contains("UpdateTemplate")
+				 || uri.contains("AccessBeacon")
+				 || uri.contains("GetTemplate")) {
+			return true;
+		}
 		
-
 		if (request.getSession().getAttribute("usuarioLogado") != null) {
 			return true;
 		}

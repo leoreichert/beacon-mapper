@@ -44,7 +44,7 @@ public class Usuario {
 		if ((id != null) || (password == null))
 			return password;
 		
-		return Utils.toSha256(password);
+		return Utils.toSha256(password).toLowerCase();
 	}
 
 	public void setPassword(String password) {

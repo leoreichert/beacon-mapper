@@ -19,11 +19,17 @@ public class LoginController {
 	@Autowired
 	UsuarioRepository usuarioRepository;
 
-	@RequestMapping("/login")
+	@RequestMapping("login")
 	public String loginForm(Model model) {
 		Usuario usuario = new Usuario();
 		model.addAttribute("usuarioForm", usuario);
 		return "login";
+	}
+
+	@RequestMapping("logout")
+	public String logout(Model model,  HttpSession session) {
+		session.removeAttribute("usuarioLogado");
+		return "redirect:login";
 	}
 	
 	@RequestMapping("/")
