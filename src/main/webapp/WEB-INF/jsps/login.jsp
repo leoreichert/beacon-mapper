@@ -15,14 +15,14 @@
         	<spring:url value="/efetuaLogin" var="efetuaLoginUrl" />
         
             <form:form class="form-horizontal" method="post" modelAttribute="usuarioForm" action="${efetuaLoginUrl}">
-                    <c:if test="${not empty param.error}">
+                    <c:if test="${not empty error}">
                         <div class="alert alert-danger">
-                            Invalid username and password.
+                            Usuário ou senha inválida!
                         </div>
                     </c:if>
-                    <c:if test="${not empty param.logout}">
+                    <c:if test="${not empty logout}">
                         <div class="alert alert-info">
-                            You have been logged out.
+                            Saiu com sucesso!
                         </div>
                     </c:if>
                     

@@ -34,9 +34,9 @@ public class BeaconController {
 	@Autowired
 	BeaconFormValidator beaconFormValidator;
 
-	@InitBinder
+	@InitBinder("beaconForm")
 	protected void initBinder(WebDataBinder binder) {
-		binder.setValidator(new BeaconFormValidator());
+		binder.setValidator(beaconFormValidator);
 	}
 
 	@RequestMapping(value = "/beacons", method = RequestMethod.GET)
