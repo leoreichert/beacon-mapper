@@ -67,6 +67,7 @@ public class BeaconController {
 	@RequestMapping(value = "/beacons/add", method = RequestMethod.GET)
 	public String showAddbeaconForm(Model model) {
 		Beacon beacon = new Beacon();
+		beacon.setUrlid("https://page-maker.herokuapp.com/#/");
 		model.addAttribute("beaconForm", beacon);
 		
 		populateDefaultModel(model);
