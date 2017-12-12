@@ -44,9 +44,6 @@ public class Beacon {
     
     @OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL, orphanRemoval=true, mappedBy="idBeacon")   
     private Collection<BeaconAccess> access;
-    
-    @Transient
-    private boolean selecionado;
 
 	public Long getId() {
 		return id;
@@ -104,14 +101,12 @@ public class Beacon {
 		this.estado = estado;
 	}
 	
-	@Transient
-	public boolean isSelecionado() {
-		return selecionado;
+	public Collection<BeaconAccess> getAccess() {
+		return access;
 	}
 	
-	@Transient
-	public void setSelecionado(boolean selecionado) {
-		this.selecionado = selecionado;
+	public void setAccess(Collection<BeaconAccess> access) {
+		this.access = access;
 	}
 	
 	@Transient

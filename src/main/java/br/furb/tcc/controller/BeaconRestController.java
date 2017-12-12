@@ -89,14 +89,16 @@ public class BeaconRestController {
 				+ "\"posY\" : \"%d\", "
 				+ "\"value\" : \"%d\" },";
 	
-		beaconRepository.findAll().forEach(beacon -> {
+		beaconRepository.findByEstado("A").forEach(beacon -> {
 			List<BeaconAccess> allAccess = beaconAccessRepository.findByIdBeacon(beacon);
 			
 			int access = allAccess.size();
 			if (maxValue < access)
 				maxValue = access;
 			
-			retorno += String.format(baseFormat, beacon.getPosicaoX() * 2, beacon.getPosicaoY() * 2, access);
+			Double doubleX = (double) (beacon.getPosicaoX() * 2.1);
+			Double doubleY = (double) (beacon.getPosicaoY() * 2.1);
+			retorno += String.format(baseFormat, doubleX.intValue(), doubleY.intValue(), access);
 		});
 		
 		String retornoLocal = "{\"max\" : \"" + maxValue + "\", \"access\" : [ " + retorno.substring(0, retorno.length() - 1) + "]}";

@@ -26,30 +26,28 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
-					<th>#ID</th>
 					<th>UID</th>
 					<th>URLID</th>
+					<th>Estado</th>
 					<th>Ações</th>
 				</tr>
 			</thead>
 
 			<c:forEach var="beacon" items="${beacons}">
 				<tr>
-					<td>
-						${beacon.id}
-					</td>
 					<td>${beacon.uid}</td>
 					<td>${beacon.urlid}</td>
+					<td>${beacon.estado}</td>
 					<td>
-						<spring:url value="/beacons/${beacon.id}" var="beaconUrl" />
+						<spring:url value="/beacons/${beacon.id}" var="beaconUrl" /> 
 						<spring:url value="/beacons/${beacon.id}/delete" var="deleteUrl" /> 
 						<spring:url value="/beacons/${beacon.id}/update" var="updateUrl" />
 						<spring:url value="${beacon.urlid}" var="editUrl" />
-						<spring:url value="${beacon.urlid}/vis/" var="viewUrl" />
+						<spring:url value="${beacon.urlid}/test/" var="viewUrl" />
 
-						<button class="btn btn-default" onclick="location.href='${beaconUrl}'">Query</button>
-						<button class="btn btn-info" onclick="location.href='${updateUrl}'">Update</button>
-						<button class="btn btn-primary" onclick="this.disabled=true;post('${deleteUrl}')">Delete</button>
+						<button class="btn btn-default" onclick="location.href='${beaconUrl}'">Visualizar</button>
+						<button class="btn btn-info" onclick="location.href='${updateUrl}'">Atualizar</button>
+						<button class="btn btn-primary" onclick="this.disabled=true;post('${deleteUrl}')">Deletar</button>
 						<button class="btn btn-warning" onclick="location.href='${editUrl}'">Editar Página</button>
 						<button class="btn btn-danger" onclick="location.href='${viewUrl}'">Visualizar Página</button></td>
 				</tr>

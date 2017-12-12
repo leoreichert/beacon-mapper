@@ -5,18 +5,19 @@
 
 <link rel="shortcut icon" type="image/png" href="resources/beacon.png"/>
 
-<link href="../resources/css/bootstrap.min.css" rel="stylesheet" />
-<link href="../resources/css/hello.css" rel="stylesheet" />
+<link href="/resources/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/resources/css/hello.css" rel="stylesheet" />
 
-<script src="../resources/js/jquery.min.js"></script>
-<script src="../resources/js/hello.js"></script>
-<script src="../resources/js/simpleheat.js"></script>
-<script src="../resources/js/bootstrap.min.js"></script>
+<script src="/resources/js/jquery.min.js"></script>
+<script src="/resources/js/hello.js"></script>
+<script src="/resources/js/simpleheat.js"></script>
+<script src="/resources/js/bootstrap.min.js"></script>
 </head>
 
 <spring:url value="/" var="urlHome" />
 <spring:url value="/mapaCalor" var="urlMapaCalor" />
 <spring:url value="/logout" var="urlLogout" />
+<spring:url value="/users" var="urlUsuarios" />
 
 <nav class="navbar navbar-inverse ">
 	<div class="container">
@@ -28,6 +29,7 @@
 		</div>
 		<div id="navbar">
 			<ul class="nav navbar-nav navbar-right">
+				<li class="active"><a href="${urlUsuarios}">Usuários</a></li>
 				<li class="active"><a href="${urlLogout}">Sair</a></li>
 			</ul>
 		</div>

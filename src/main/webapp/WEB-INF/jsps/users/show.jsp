@@ -20,28 +20,24 @@
 		</div>
 	</c:if>
 
-	<h1>Detalhes do Beacon</h1>
+	<h1>Detalhes do Usuário</h1>
 	<br />
 
 	<div class="row">
 		<label class="col-sm-2">ID</label>
-		<div class="col-sm-10">${beacon.id}</div>
+		<div class="col-sm-10">${user.id}</div>
 	</div>
 
 	<div class="row">
-		<label class="col-sm-2">UID</label>
-		<div class="col-sm-10">${beacon.uid}</div>
+		<label class="col-sm-2">Login</label>
+		<div class="col-sm-10">${user.username}</div>
 	</div>
 
-	<div class="row">
-		<label class="col-sm-2">URLID</label>
-		<div class="col-sm-10">${beacon.urlid}</div>
-	</div>	
-	
 	<div class="row">
 		<label class="col-sm-2">Estado</label>
-		<div class="col-sm-10">${beacon.estado}</div>
+		<div class="col-sm-10">${user.estado}</div>
 	</div>	
+
 </div>
 
 <jsp:include page="../fragments/footer.jsp" />

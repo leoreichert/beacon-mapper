@@ -19,10 +19,10 @@
 
 	<c:choose>
 		<c:when test="${beaconForm['new']}">
-			<h1>Add Beacon</h1>
+			<h1>Adicionar</h1>
 		</c:when>
 		<c:otherwise>
-			<h1>Update Beacon</h1>
+			<h1>Atualizar</h1>
 		</c:otherwise>
 	</c:choose>
 	<br />
@@ -33,6 +33,7 @@
 		modelAttribute="beaconForm" action="${beaconActionUrl}">
 
 		<form:hidden path="id" />
+		<form:hidden path="access" />
 
 		<spring:bind path="uid">
 			<div class="form-group ${status.error ? 'has-error' : ''}">
@@ -99,10 +100,10 @@
 			<div class="col-sm-offset-2 col-sm-10">
 				<c:choose>
 					<c:when test="${beaconForm['new']}">
-						<button type="submit" class="btn-lg btn-primary pull-right">Add</button>
+						<button type="submit" class="btn-lg btn-primary pull-right">Adicionar</button>
 					</c:when>
 					<c:otherwise>
-						<button type="submit" class="btn-lg btn-primary pull-right">Update</button>
+						<button type="submit" class="btn-lg btn-primary pull-right">Atualizar</button>
 					</c:otherwise>
 				</c:choose>
 			</div>

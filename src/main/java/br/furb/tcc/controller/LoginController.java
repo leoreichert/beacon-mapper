@@ -51,6 +51,11 @@ public class LoginController {
 					return "redirect:login";
 				}
 				
+				if ((usuarioOptional.get().getEstado() == null) || (!usuarioOptional.get().getEstado().equals("A"))) {
+					redirectAttributes.addFlashAttribute("error", "Usuário inativo!");
+					return "redirect:login";
+				}
+				
 				session.setAttribute("usuarioLogado", usuario);
 				return "redirect:/beacons";
 			} else {

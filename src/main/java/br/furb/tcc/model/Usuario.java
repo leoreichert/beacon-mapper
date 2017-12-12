@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "users")
@@ -21,6 +22,12 @@ public class Usuario {
 
     @Column(name = "password")
     private String password;
+    
+    @Column(name = "estado")
+    private String estado;
+    
+    @Transient
+    private String confirmPassword;
     
     public Long getId() {
 		return id;
@@ -44,6 +51,29 @@ public class Usuario {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public String getEstado() {
+		return estado;
+	}
+	
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+	
+	@Transient
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+	
+	@Transient
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
+	
+	@Transient
+	public boolean isNew() {
+		return id == null;
 	}
 
 	@Override

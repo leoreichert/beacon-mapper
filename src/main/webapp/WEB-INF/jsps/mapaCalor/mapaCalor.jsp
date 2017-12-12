@@ -33,7 +33,7 @@
 			data.push([response.access[i].posX, response.access[i].posY, response.access[i].value]);
 		}
 		
-		var heat = simpleheat('canvas').data(data).max(response.max * 1.2),
+		var heat = simpleheat('canvas').data(data).max(response.max * 1.1),
 		    frame;
 		
 		function draw() {

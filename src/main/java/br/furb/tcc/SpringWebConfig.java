@@ -70,10 +70,15 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter {
 	public InitializingBean sendDatabase() {
 		return () -> {
 			Optional<Usuario> user = usuarioRepository.findByUsername("admin");
-			if (!user.isPresent()) {
+			if (user.isPresent()) {
+				Usuario usuario = user.get();
+				usuario.setEstado("A");
+				usuarioRepository.save(usuario);
+			} else {
 				Usuario usuario = new Usuario();
 				usuario.setUsername("admin");
 				usuario.setPassword(Utils.toSha256("0071278457"));
+				usuario.setEstado("A");
 				usuarioRepository.save(usuario);
 			}
 		};

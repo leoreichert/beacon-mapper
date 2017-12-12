@@ -83,7 +83,6 @@ public class BeaconController {
 		populateDefaultModel(model);
 
 		return "beacons/beaconform";
-
 	}
 
 	@RequestMapping(value = "/beacons/{id}/delete", method = RequestMethod.POST)
